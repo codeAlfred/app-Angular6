@@ -8,6 +8,8 @@ import { Component } from '@angular/core';
 export class AppComponent {
 
   title: string = 'appCrud';
+  //mensaje
+  msg:string = '';
   //arreglo de objetos de empleados
   employees=[
     {name: "luis" , position: "ceo", email: "email.@gamil.com"},
@@ -24,13 +26,16 @@ export class AppComponent {
   //create
   addEmployee():void {
     this.employees.push(this.model);
+    this.msg='campo agregado';
   }
   //delete
   deleteEmployee(i):void {
     var answer = confirm('Estas seguo querer eliminarlo?');
     if(answer){
       this.employees.splice(i,1);
+      this.msg='campo eliminado';
     }
+    
   }
   //prepara para editar
   myValue;
@@ -46,9 +51,14 @@ export class AppComponent {
     for(let j=0; j<this.employees.length; j++){
       if(i == j){
         this.employees[i]= this.model2;
+        this.msg='campo actualizado';
         this.model2={};
       }
     }
+  }
+  //metodo para cerrar el mensaje
+  closeAlert():void{
+    this.msg='';
   }
 
 
