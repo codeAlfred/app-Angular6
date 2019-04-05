@@ -21,6 +21,8 @@ export class AppComponent {
   model: any ={};
   //segundo modelo para el updateEmployee
   model2: any ={};
+  //
+  hideUpdate: boolean = true;
 
   //metodos para CRUD
   //create
@@ -40,6 +42,7 @@ export class AppComponent {
   //prepara para editar
   myValue;
   editEmployee(i):void {
+    this.hideUpdate=false;
     this.model2.name = this.employees[i].name;
     this.model2.position = this.employees[i].position;
     this.model2.email = this.employees[i].email;
