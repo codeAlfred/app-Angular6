@@ -26,8 +26,11 @@ export class AppComponent {
     this.employees.push(this.model);
   }
   //delete
-  deleteEmployee():void {
-
+  deleteEmployee(i):void {
+    var answer = confirm('Estas seguo querer eliminarlo?');
+    if(answer){
+      this.employees.splice(i,1);
+    }
   }
   //prepara para editar
   myValue;
